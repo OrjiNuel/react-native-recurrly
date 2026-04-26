@@ -1,8 +1,7 @@
-import { Redirect, Stack } from "expo-router";
-import '@/global.css';
+import { Redirect } from "expo-router";
 import { useAuth } from "@clerk/expo";
 
-export default function RootLayout() {
+export default function Index() {
     const { isLoaded, isSignedIn } = useAuth();
 
     if (!isLoaded) {
@@ -13,5 +12,5 @@ export default function RootLayout() {
         return <Redirect href="/(tabs)" />;
     }
 
-    return <Stack screenOptions={{ headerShown: false }} />;
+    return <Redirect href="/(auth)/sign-in" />;
 }
